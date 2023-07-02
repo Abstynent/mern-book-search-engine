@@ -3,8 +3,9 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Description
-  [Link]()
-  
+  [Link](https://serene-cove-81669-ff89c19ccf91.herokuapp.com/)
+  ![Screenshot 2023-07-02 at 23 26 41](https://github.com/Abstynent/mern-book-search-engine/assets/87772337/fe147d1e-6b73-4c98-bab9-b4d6a17c8835)
+
   This GitHub repository contains a React application that allows users to search for books using the Google Books API. The app utilizes GraphQL as the query language and runtime for interacting with the server. It provides a user-friendly interface where users can enter search queries and retrieve detailed information about books, including titles, authors, descriptions, and cover images. The React components are efficiently designed to provide a smooth and responsive user experience. The GraphQL layer handles the communication with the Google Books API, optimizing data fetching and minimizing unnecessary requests. The repository includes both the client-side React code and the server-side GraphQL implementation, providing a comprehensive solution for building a book search app with React and GraphQL.
 
   ## Table of Contents

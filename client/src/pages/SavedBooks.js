@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   Container,
   Card,
@@ -42,7 +42,7 @@ const SavedBooks = () => {
           const data = cache.readQuery({ query: GET_ME });
           const userDataCache = data.me;
           const savedBooksCache = userDataCache.savedBooks;
-          const updatedBooksCache = savedBooksCache.filter((book) => book.bookId !== bookId );
+          const updatedBookCache = savedBooksCache.filter((book) => book.bookId !== bookId );
           data.me.savedBooks = updatedBookCache;
           cache.writeQuery({ query: GET_ME, data: { data: { ...data.me.savedBooks }}});
         }
@@ -55,7 +55,7 @@ const SavedBooks = () => {
   };
 
   // if data isn't here yet, say so
-  if (!userDataLength) {
+  if (loading) {
     return <h2>LOADING...</h2>;
   }
 

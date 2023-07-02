@@ -33,21 +33,24 @@ module.exports = {
   //   next();
   // },
   authMiddleware: function ({ req }) {
-    let token = req.headers.authorization || '';
+    let token = req.body.token || req.query.token || req.headers.authorization;
 
-    if(toke) {
-      token = token.replace('Bearer ', '');
-    } else {
-      throw new Error('You have no token!');
-    };
+    if (req.headers.authorization) {
+      token = token.split(' ').pop().trim();
+    }
+
+    if (!token) {
+      return req;
+    }
 
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-    } catch (error) {
-      console.log('Invalid token:', error);
-      throw new Error('Invalid token!');
+    } catch {
+      console.log('Invalid token');
     }
+
+    return req;
   },
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
